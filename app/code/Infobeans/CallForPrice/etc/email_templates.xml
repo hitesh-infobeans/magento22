@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Email:etc/email_templates.xsd">
+    <template id="callforprice_general_frontend_callforprice_template" label="Call For Price" file="frontend_callforprice.html" type="html" module="Infobeans_CallForPrice" area="frontend"/> 
+    <template id="admin_callforprice_template" label="Call For Price Admin" file="admin_callforprice.html" type="text" module="Infobeans_CallForPrice" area="adminhtml"/> 
+</config>

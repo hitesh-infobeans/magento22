@@ -1,0 +1,20 @@
+<!--@subject {{trans "Call for Price: %product_name" product_name=$product.name}} @-->
+<!--@vars {
+"var store.getFrontendName()|escape":"Store Name"
+} @-->
+{{trans "Hello Admin,"}}
+
+{{trans "Below is new inquiry of call for price"}}
+
+
+{{trans "Product Name : %product_name" product_name=$product.name}}
+{{trans "Sku : %sku" sku=$product.sku}}
+{{trans "Customer Name : %name" name=$name}}
+{{trans "Phone : %phone" phone=$phone}}
+{{trans "Email : %email" email=$email}}
+{{trans "Comment : %comment" comment=$comment}}
+
+
+
+{{trans "Thank you,"}}
+{{var store.getFrontendName()}}

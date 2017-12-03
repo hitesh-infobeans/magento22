@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <tab id="infobeans_config" translate="label" sortOrder="10">
+            <label>Infobeans</label>
+        </tab>
+        <section id="callforprice" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Call For Price Configuration</label>
+            <tab>infobeans_config</tab>
+            <resource>Infobeans_CallForPrice::callforprice_configuration</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="0" showInStore="0">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Module Enable</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="button_title" translate="label" type="text" sortOrder="1" showInDefault="1" showInWebsite="0" showInStore="0">
+                    <label>Button Title</label>
+                    <comment>This title will display on button.</comment>
+                </field> 
+                 <field id="callforprice_success_message" translate="label" type="textarea" sortOrder="8" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <validate>required-entry</validate>
+                    <label>Success Message</label>
+                </field>
+                 <field id="frontend_callforprice_template" translate="label comment" type="select" sortOrder="9" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Customer Email Template</label>                
+                    <source_model>Magento\Config\Model\Config\Source\Email\Template</source_model>
+                    <comment>Email template chosen based on theme fallback when "Default" option is selected.</comment>
+                </field>    
+                  <field id="email_to" translate="label" type="text" sortOrder="4" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Admin Email</label>
+                    <validate>required-entry validate-email</validate>
+                    <comment><![CDATA[Email notification sent to admin]]></comment>
+                </field>
+                <field id="identity" translate="label" type="select" sortOrder="5" showInDefault="1" showInWebsite="1" showInStore="1" canRestore="1">
+                    <label>Order Cancel Email Sender</label>
+                    <source_model>Magento\Config\Model\Config\Source\Email\Identity</source_model>
+                </field> 
+            </group>
+        </section>
+    </system>
+</config>

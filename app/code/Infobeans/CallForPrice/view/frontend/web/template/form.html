@@ -1,0 +1,23 @@
+<div id="popup-modal" style="display:none">
+    <form name="frmcallforprice" method="post" id="frmcallforprice" data-bind="attr: { action: postUrl }" >
+       <input type="hidden" name="product_id" id="product_id" data-bind="value:productId" value="" />
+        
+        <div>
+        <label class="label" for="name">Name : </label>  
+            <input type="text" name="name" id="name" value="Hitesh" data-validate="{required:true}" />
+        </div>
+        <div>
+        <label class="label"  for="email">Email Id : </label>  
+            <input type="text" name="email" id="email" value="hiteshagrawal84@gmail.com" data-validate="{required:true}" />
+        </div>
+          <div>
+        <label class="label"  for="phone">Phone# : </label>  
+            <input type="text" name="phone" id="phone" value="9898768618" data-validate="{required:true}" />
+        </div>
+        <div> 
+           <label class="label"  for="comment">Comment : </label>    
+            <textarea name="comment" id="comment"  data-validate="{required:true}">Test</textarea>
+             
+        </div>
+    </form>
+</div>
