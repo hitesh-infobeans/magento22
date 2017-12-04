@@ -1,6 +1,7 @@
 <?php if ($block->isCallForPrice()): 
 $product = $block->getProduct();
 ?>  
+<div class="box-tocart">
 <div id="callforprice"   data-bind="scope:'callforprice'">                                                                        
 <?php $buttonTitle = $block->getButtonTitle(); ?>  
 <button type="button"  data-bind="click: function(){ showPopup(<?php echo $product->getId()?>); }"
@@ -13,7 +14,7 @@ $product = $block->getProduct();
  
 <!-- ko template: getTemplate() --><!-- /ko -->
 </div>                                                      
-     
+</div>     
   <script type="text/javascript">
   window.postUrl = "<?php echo $block->getSubmitUrl();?>";
 

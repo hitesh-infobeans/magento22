@@ -59,6 +59,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         );
     }
 
+    public function isCallForPrice() 
+    {
+        if(!$this->isModuleEnable())
+        {
+            return false;
+        }
+        return true;
+    }
+
         /**
      * Retrieve Admin email
      */
@@ -84,9 +93,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     }
 
     /**
-     * Send Order cancel email notification to admin
+     * Send Email
+     * @params $toEmail,$params,$options
      */
-    public function sendEmail($params, $options)
+    public function sendEmail($toEmail,$params, $options)
     {
 
         $templateOptions =  [
@@ -97,15 +107,15 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         $templateVars = [
                             'store' => $this->storeManager->getStore(),
                             'name'=>$params['name'],
-                             'email' =>$params['email'],
-                             'phone' =>$params['phone'],
-                             'comment' =>$params['comment'],
+                            'email' =>$params['email'],
+                            'phone' =>$params['phone'],
+                            'comment' =>$params['comment'],
                             'product' => $params['product'] 
                         ];
            
         $this->inlineTranslation->suspend();
         
-         $to = [$this->getAdminEmail()];
+        $to = [$toEmail];
        
         $transport = $this->_transportBuilder->setTemplateIdentifier($options['emailTemplate'])
                         ->setTemplateOptions($templateOptions)

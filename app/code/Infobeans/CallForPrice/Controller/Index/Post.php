@@ -163,13 +163,14 @@ class Post extends \Magento\Framework\App\Action\Action
                 $options['area'] =\Magento\Framework\App\Area::AREA_ADMINHTML;   
               
                   // Send Email to Admin
-
-                $this->helper->sendEmail($params, $options);
+                $to = $this->helper->getAdminEmail();
+                $this->helper->sendEmail($to,$params, $options);
 
                 // Send Email to Customer
                 $options['emailTemplate'] ="frontend_callforprice_template";
-                $options['area'] =\Magento\Framework\App\Area::AREA_FRONTEND;   
-                $this->helper->sendEmail($params, $options); 
+                $options['area'] =\Magento\Framework\App\Area::AREA_FRONTEND;
+                $to = $email;   
+                $this->helper->sendEmail($to,$params, $options); 
 
                 $this->messageManager->addSuccess(__($message));
                
