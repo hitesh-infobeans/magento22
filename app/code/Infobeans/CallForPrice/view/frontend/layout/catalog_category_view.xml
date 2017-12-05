@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<page
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+       <referenceBlock name="category.products.list">
+        	<action method="setTemplate">
+                <argument name="template" xsi:type="string">Infobeans_CallForPrice::catalog/product/list.phtml</argument>
+            </action>    
+            <block class="Infobeans\CallForPrice\Block\Product\View\CallForPrice" name="product.info.callforprice" as="callforprice" template="Infobeans_CallForPrice::catalog/product/callforprice.phtml"/>
+        </referenceBlock>
+    </body>
+</page>

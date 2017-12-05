@@ -1,0 +1,36 @@
+<?php if ($block->isCallForPrice()): 
+$product = $block->getProduct();
+?>  
+ 
+<div id="callforprice"   data-bind="scope:'callforprice'">                                                                        
+<?php $buttonTitle = $block->getButtonTitle(); ?>  
+<button type="button"  data-bind="click: function(){ showPopup(<?php echo $product->getId()?>); }"
+                    title="<?= /* @escapeNotVerified */ $buttonTitle ?>"
+                    class="action primary tocart"
+                    id="product-callforprice-button">
+                <span><?= /* @escapeNotVerified */ $buttonTitle ?></span>
+</button>
+            
+ 
+<!-- ko template: getTemplate() --><!-- /ko -->
+</div>                                                      
+    
+  <script type="text/javascript">
+  window.postUrl = "<?php echo $block->getSubmitUrl();?>";
+
+  </script> 
+  <script type="text/x-magento-init">
+    {
+        "#callforprice": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "callforprice": {
+                        "component": "Infobeans_CallForPrice/js/callforprice"                        
+                    }
+                }
+            }
+        }
+    }
+</script>
+
+<?php endif;?> 

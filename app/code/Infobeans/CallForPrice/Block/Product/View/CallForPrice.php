@@ -53,5 +53,10 @@ class CallForPrice extends \Magento\Framework\View\Element\Template
         return $this->product;
     }
     
-    
+    public function setProduct($product)
+    { 
+        $this->product = $product;
+    }
+ 
+
 }
