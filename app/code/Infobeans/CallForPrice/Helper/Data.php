@@ -109,6 +109,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
                             'name'=>$params['name'],
                             'email' =>$params['email'],
                             'phone' =>$params['phone'],
+                            'qty' =>$params['qty'],
                             'comment' =>$params['comment'],
                             'product' => $params['product'] 
                         ];

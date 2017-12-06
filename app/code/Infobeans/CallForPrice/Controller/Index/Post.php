@@ -110,6 +110,10 @@ class Post extends \Magento\Framework\App\Action\Action
         if (!\Zend_Validate::is(trim($post['phone']), 'NotEmpty')) {
             return false;
         }
+
+        if (!\Zend_Validate::is(trim($post['qty']), 'NotEmpty')) {
+            return false;
+        }
         
         
         if (!\Zend_Validate::is(trim($post['comment']), 'NotEmpty')) {
@@ -146,6 +150,7 @@ class Post extends \Magento\Framework\App\Action\Action
                 $name = $this->escaper->escapeHtml(trim($post['name']));
                 $email = $this->escaper->escapeHtml(trim($post['email']));
                 $phone = $this->escaper->escapeHtml(trim($post['phone']));
+                $qty = $this->escaper->escapeHtml(trim($post['qty']));
                 $comment = $this->escaper->escapeHtml(trim($post['comment']));
                 
               
@@ -157,6 +162,7 @@ class Post extends \Magento\Framework\App\Action\Action
                 $params['name'] = $name;
                 $params['email'] =$email;
                 $params['phone'] = $phone;
+                $params['qty'] = $qty;
                 $params['comment'] =$comment;
 
                 $options['emailTemplate'] = "admin_callforprice_template" ;

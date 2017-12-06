@@ -3,7 +3,20 @@ namespace Infobeans\CallForPrice\Plugin;
 
 class FinalPriceBox
 {
-	public function afterGetName(\Magento\Catalog\Model\Product $subject, $result) {
-            return "Apple ".$result; // Adding Apple in product name
+	protected $helper;
+
+	public function __construct(         
+        \Infobeans\CallForPrice\Helper\Data $helper       
+    ) {
+         $this->helper = $helper;
     }
+
+	function aroundToHtml($subject, callable $proceed)
+	{ 
+		if($this->helper->isCallForPrice()) {
+			return ''; 
+		} else{
+			return $proceed();
+		}
+	}
 }
