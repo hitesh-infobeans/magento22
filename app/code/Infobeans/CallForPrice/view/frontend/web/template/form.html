@@ -1,27 +1,27 @@
 <div id="popup-modal" style="display:none">
     <form name="frmcallforprice" method="post" id="frmcallforprice" data-bind="attr: { action: postUrl }" >
        <input type="hidden" name="product_id" id="product_id" data-bind="value:productId" value="" />
-        
-        <div>
-        <label class="label" for="name">Name : </label>  
-            <input type="text" name="name" id="name" value="Hitesh" data-validate="{required:true}" />
-        </div>
-        <div>
-        <label class="label"  for="email">Email Id : </label>  
-            <input type="text" name="email" id="email" value="hiteshagrawal84@gmail.com" data-validate="{required:true}" />
-        </div>
-          <div>
-        <label class="label"  for="phone">Phone# : </label>  
-            <input type="text" name="phone" id="phone" value="9898768618" data-validate="{required:true}" />
-        </div>
-          <div>
-        <label class="label"  for="phone">Quantity Required : </label>  
-            <input type="text" name="qty" id="qty" value="9898768618" data-validate="{required:true}" />
-        </div>
-        <div> 
-           <label class="label"  for="comment">Comment : </label>    
-            <textarea name="comment" id="comment"  data-validate="{required:true}">Test</textarea>
-             
-        </div>
+        <fieldset class="fieldset" data-hasrequired="* Required Fields">
+            <div class="field name required">
+            <label class="label" for="name" data-bind="i18n: 'Name :'"></label>  
+                <input type="text" name="name" id="name" value="Hitesh" data-validate="{required:true}" />
+            </div>
+            <div class="field email required">
+            <label class="label"  for="email" data-bind="i18n: 'Email Id :'"></label>  
+                <input type="text" name="email" id="email" value="hiteshagrawal84@gmail.com" data-validate="{required:true, 'validate-email':true}" />
+            </div>
+              <div class="field phone required">
+            <label class="label"  for="phone" data-bind="i18n: 'Phone# :'"></label>  
+                <input type="text" name="phone" id="phone" value="9898768618" data-validate="{required:true}" />
+            </div>
+              <div class="field qty required">
+            <label class="label"  for="qty" data-bind="i18n: 'Quantity Required :'"></label>  
+                <input type="text" name="qty" id="qty" value="2" data-validate="{required:true}" />
+            </div>
+            <div class="field comment required"> 
+               <label class="label"  for="comment" data-bind="i18n: 'Comment :'"></label>    
+                <textarea name="comment" id="comment"  data-validate="{required:true}">Test</textarea> 
+            </div>
+         </fieldset>    
     </form>
 </div>

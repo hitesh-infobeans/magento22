@@ -173,7 +173,7 @@ class Post extends \Magento\Framework\App\Action\Action
                 $this->helper->sendEmail($to,$params, $options);
 
                 // Send Email to Customer
-                $options['emailTemplate'] ="frontend_callforprice_template";
+                $options['emailTemplate'] =$this->helper->getFrontendEmailTemplate();
                 $options['area'] =\Magento\Framework\App\Area::AREA_FRONTEND;
                 $to = $email;   
                 $this->helper->sendEmail($to,$params, $options); 

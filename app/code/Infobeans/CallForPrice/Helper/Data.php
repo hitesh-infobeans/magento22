@@ -10,6 +10,8 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     const CONFIG_BUTTON_TITLE = 'callforprice/general/button_title';  
 
     const XML_PATH_ADMIN_EMAIL ='callforprice/general/email_to';
+    
+    const XML_PATH_FRONTEND_EMAIL_TEMPLATE ='callforprice/general/frontend_callforprice_template';
 
     const XML_PATH_EMAIL_IDENTITY = 'callforprice/general/identity';
 
@@ -55,6 +57,14 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     {
         return $this->scopeConfig->getValue(
             self::XML_PATH_SUCCESS_MESSAGE,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
+    }
+    
+    public function getFrontendEmailTemplate()
+    {
+        return $this->scopeConfig->getValue(
+            self::XML_PATH_FRONTEND_EMAIL_TEMPLATE,
             \Magento\Store\Model\ScopeInterface::SCOPE_STORE
         );
     }

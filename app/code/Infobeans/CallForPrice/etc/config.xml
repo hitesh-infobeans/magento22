@@ -6,8 +6,7 @@
                 <enable>1</enable>
                 <button_title>Call For Price</button_title>
                 <callforprice_success_message>Request has been received.</callforprice_success_message>
-                <frontend_callforprice_template>frontend_callforprice_template</frontend_callforprice_template>
-                <admin_callforprice_template>admin_callforprice_template</admin_callforprice_template>
+                <frontend_callforprice_template>callforprice_general_frontend_callforprice_template</frontend_callforprice_template>
                 <email_to>example@domain.com</email_to>
                 <identity>sales</identity>
             </general>
