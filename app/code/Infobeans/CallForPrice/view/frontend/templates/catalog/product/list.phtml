@@ -41,7 +41,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
      */
     $pos = $block->getPositioned();
     ?>
-    <div class="products wrapper <?= /* @escapeNotVerified */ $viewMode ?> products-<?= /* @escapeNotVerified */ $viewMode ?>">
+    <div data-bind="scope:'callforprice'" class="products wrapper <?= /* @escapeNotVerified */ $viewMode ?> products-<?= /* @escapeNotVerified */ $viewMode ?>">
         <?php $iterator = 1; ?>
         <ol class="products list items product-items">
             <?php /** @var $_product \Magento\Catalog\Model\Product */ ?>
@@ -125,6 +125,7 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
                 <?= ($iterator == count($_productCollection)+1) ? '</li>' : '' ?>
             <?php endforeach; ?>
         </ol>
+        <!-- ko template: getTemplate() --><!-- /ko -->
     </div>
     <?= $block->getToolbarHtml() ?>
     <?php if (!$block->isRedirectToCartEnabled()) : ?>
@@ -139,3 +140,20 @@ $_helper = $this->helper('Magento\Catalog\Helper\Output');
         </script>
     <?php endif; ?>
 <?php endif; ?>
+ <script type="text/javascript">
+ window.postUrl = "<?php echo $this->getUrl('callforprice/index/post');?>"; 
+  </script> 
+
+<script type="text/x-magento-init">
+    {
+        "*": {
+            "Magento_Ui/js/core/app": {
+               "components": {
+                    "callforprice": {
+                        "component": "Infobeans_CallForPrice/js/callforprice"                        
+                    }
+                }
+            }
+        }
+    }
+</script>
