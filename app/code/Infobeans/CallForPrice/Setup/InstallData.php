@@ -1,5 +1,13 @@
 <?php
- 
+/**
+ * Call For Price Module
+ *
+ * @category   Infobeans
+ * @package    ICC_CallForPrice
+ * @version    1.0.0
+ *
+ */
+
 namespace Infobeans\CallForPrice\Setup;
  
 use Magento\Eav\Setup\EavSetupFactory;
