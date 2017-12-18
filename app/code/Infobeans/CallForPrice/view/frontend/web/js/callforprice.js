@@ -1,5 +1,7 @@
-define(['jquery', 'uiComponent', 'ko','Magento_Ui/js/modal/modal'], function ($, Component, ko,modal) {
-        'use strict';
+define(
+    ['jquery', 'uiComponent', 'ko', 'Magento_Ui/js/modal/modal'],
+    function ($, Component, ko, modal) {
+    'use strict';
         return Component.extend({
             defaults: {
                 template: 'Infobeans_CallForPrice/form'
@@ -11,22 +13,22 @@ define(['jquery', 'uiComponent', 'ko','Magento_Ui/js/modal/modal'], function ($,
             },
             showPopup: function (productid) {
                 var options = {
-                type: 'popup',
-                responsive: true,
-                innerScroll: true,
-                title: 'Call For Price',
-                width:400,
-                buttons: [{
-                    text: $.mage.__('Submit'),
-                    class: '',
-                    click: function () {
-                       if ($('#frmcallforprice').validation() &&
-                            $('#frmcallforprice').validation('isValid')
-                        ) {
-                            $('#frmcallforprice').submit();
-}
-                    }
-                }]
+                    type: 'popup',
+                    responsive: true,
+                    innerScroll: true,
+                    title: 'Call For Price',
+                    width: 400,
+                    buttons: [{
+                            text: $.mage.__('Submit'),
+                            class: '',
+                            click: function () {
+                                if ($('#frmcallforprice').validation() &&
+                                        $('#frmcallforprice').validation('isValid')
+                                        ) {
+                                    $('#frmcallforprice').submit();
+                                }
+                            }
+                        }]
                 };
                 this.productId(productid);
                 var popup = modal(options, $('#popup-modal'));

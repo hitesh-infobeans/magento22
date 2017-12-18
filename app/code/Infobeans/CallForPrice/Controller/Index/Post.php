@@ -70,7 +70,7 @@ class Post extends \Magento\Framework\App\Action\Action
     ) {
         $this->_coreRegistry = $coreRegistry;
         $this->resultPageFactory = $resultPageFactory;
-        $this->productRepository = $productRepository;                                                     
+        $this->productRepository = $productRepository;
         $this->escaper = $escaper;
         $this->helper = $helper;
         $this->logger = $logger;
@@ -87,7 +87,6 @@ class Post extends \Magento\Framework\App\Action\Action
           
         try {
             $product = $this->productRepository->getById($id);
-           
         } catch (NoSuchEntityException $e) {
             $this->messageManager->addError(__('This product no longer exists.'));
             $this->_actionFlag->set('', self::FLAG_NO_DISPATCH, true);
@@ -98,7 +97,7 @@ class Post extends \Magento\Framework\App\Action\Action
             return false;
         }
         return $product;
-    } 
+    }
     
     /**
      *  Validate Form
@@ -136,7 +135,7 @@ class Post extends \Magento\Framework\App\Action\Action
     
     /**
      * Execute Function
-     * 
+     *
      */
     public function execute()
     {
@@ -178,13 +177,13 @@ class Post extends \Magento\Framework\App\Action\Action
               
                   // Send Email to Admin
                 $to = $this->helper->getAdminEmail();
-                $this->helper->sendEmail($to,$params, $options);
+                $this->helper->sendEmail($to, $params, $options);
 
                 // Send Email to Customer
                 $options['emailTemplate'] =$this->helper->getFrontendEmailTemplate();
                 $options['area'] =\Magento\Framework\App\Area::AREA_FRONTEND;
                 $to = $email;
-                $this->helper->sendEmail($to,$params, $options);
+                $this->helper->sendEmail($to, $params, $options);
 
                 $this->messageManager->addSuccess(__($message));
             } catch (\Magento\Framework\Exception\LocalizedException $e) {

@@ -20,12 +20,12 @@ class FinalPriceBox
          $this->helper = $helper;
     }
 
-    function aroundToHtml($subject, callable $proceed)
-    { 
+    public function aroundToHtml($subject, callable $proceed)
+    {
         if ($this->helper->isCallForPrice()) {
             return '';
-	} else {
+        } else {
             return $proceed();
-	}
+        }
     }
 }

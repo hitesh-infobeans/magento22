@@ -24,12 +24,11 @@ class CallForPrice extends \Magento\Framework\View\Element\Template
      * @param \Infobeans\CallForPrice\Helper\Data $helper
      * @param \Magento\Framework\Registry $registry
      */
-    public function __construct(                 
+    public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Infobeans\CallForPrice\Helper\Data $helper,
         \Magento\Framework\Registry $registry
-    )
-    {
+    ) {
         $this->helper = $helper;
         $this->_coreRegistry = $registry;
         parent::__construct($context);
@@ -70,7 +69,7 @@ class CallForPrice extends \Magento\Framework\View\Element\Template
          return $this->getUrl('callforprice/index/post');
     }
     
-    /**  
+    /**
      * @return Product
      */
     public function getProduct()

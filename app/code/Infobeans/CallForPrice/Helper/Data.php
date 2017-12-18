@@ -28,7 +28,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
     
     protected $storeManager;
     
-    protected $_transportBuilder;
+    protected $transportBuilder;
     
     protected $inlineTranslation;
     
@@ -53,7 +53,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         parent::__construct($context);
         $this->scopeConfig = $context->getScopeConfig();
         $this->storeManager = $storeManager;
-        $this->_transportBuilder=$transportBuilder;
+        $this->transportBuilder=$transportBuilder;
         $this->inlineTranslation=$inlineTranslation;
         $this->date = $date;
     }
@@ -65,7 +65,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function isModuleEnable()
     {
-       return $this->scopeConfig->getValue(self::CONFIG_MODULE_ENABLE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue(
+            self::CONFIG_MODULE_ENABLE,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
     }
     
     /**
@@ -75,7 +78,10 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      */
     public function getButtonTitle()
     {
-       return $this->scopeConfig->getValue(self::CONFIG_BUTTON_TITLE, \Magento\Store\Model\ScopeInterface::SCOPE_STORE);
+        return $this->scopeConfig->getValue(
+            self::CONFIG_BUTTON_TITLE,
+            \Magento\Store\Model\ScopeInterface::SCOPE_STORE
+        );
     }
     
     /**
@@ -109,7 +115,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      *
      * @return type boolean
      */
-    public function isCallForPrice() 
+    public function isCallForPrice()
     {
         if (!$this->isModuleEnable()) {
             return false;
@@ -147,7 +153,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
      * Send Email
      * @params $toEmail,$params,$options
      */
-    public function sendEmail($toEmail,$params, $options)
+    public function sendEmail($toEmail, $params, $options)
     {
         $templateOptions =  [
                               'area' => $options['area'],
@@ -168,7 +174,7 @@ class Data extends \Magento\Framework\App\Helper\AbstractHelper
         
         $to = [$toEmail];
        
-        $transport = $this->_transportBuilder->setTemplateIdentifier($options['emailTemplate'])
+        $transport = $this->transportBuilder->setTemplateIdentifier($options['emailTemplate'])
                         ->setTemplateOptions($templateOptions)
                         ->setTemplateVars($templateVars)
                         ->setFrom($this->getEmailIdentity())
